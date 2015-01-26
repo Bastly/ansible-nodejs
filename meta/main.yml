@@ -20,6 +20,6 @@ galaxy_info:
   - system
   - development
 
-dependencies:
+dependencies: []
   # - role: bastly.common-build
   #   when: nodejs_install_method is defined and nodejs_install_method == "source"
