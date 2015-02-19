@@ -1,4 +1,10 @@
 ---
+# tasks file for roles/bastly.nodejs
+- name: nodejs | Make sure the dependencies are installed
+  sudo: yes
+  apt: pkg={{ item }}
+  with_items:
+    - git
 
 - name: Ensure Ubuntu Distro is Supported
   get_url: 
