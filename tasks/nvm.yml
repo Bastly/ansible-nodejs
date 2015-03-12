@@ -1,0 +1,11 @@
+# file: nodejs/tasks/nvm.yml
+
+- name: install nvm 
+  shell: get -qO- https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash
+
+- name: source bashrc
+  shell: source ~/.bashrc
+
+- name: install required version of node 
+  shell: nvm install  {{ nodejs_version }}
+

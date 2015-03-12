@@ -18,3 +18,7 @@
 
 - include: source.yml
   when: nodejs_install_method == "source" and node_version.changed
+
+
+- include: nvm.yml
+  when:  (nodejs_install_method == "nvm" and node_version.failed is defined) or (nodejs_install_method == "nvm" and node_version.stdout != "v{{ nodejs_version }}")
