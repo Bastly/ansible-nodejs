@@ -8,7 +8,7 @@
 
 - name: Ensure Ubuntu Distro is Supported
   get_url: 
-    url='https://deb.nodesource.com/node/dists/{{ ansible_distribution_release }}/Release' 
+    url='https://deb.nodesource.com/node_0.12/dists/{{ ansible_distribution_release }}/Release' 
     dest=/dev/null
   register: distrosupported
 
@@ -19,13 +19,13 @@
 
 - name: Add Nodesource Apt Sources List Deb
   apt_repository: 
-    repo='deb https://deb.nodesource.com/node {{ ansible_distribution_release }} main' 
+    repo='deb https://deb.nodesource.com/node_0.12 {{ ansible_distribution_release }} main' 
     state=present
   when: distrosupported|success
 
 - name: Add Nodesource Apt Sources List Deb Src
   apt_repository: 
-    repo='deb-src https://deb.nodesource.com/node {{ ansible_distribution_release }} main' 
+    repo='deb-src https://deb.nodesource.com/node_0.12 {{ ansible_distribution_release }} main' 
     state=present
   when: distrosupported|success
 
