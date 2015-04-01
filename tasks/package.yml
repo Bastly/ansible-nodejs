@@ -14,22 +14,26 @@
 
 - name: Add Nodesource Keys
   apt_key: 
+  sudo: yes
     url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key 
     state=present
 
 - name: Add Nodesource Apt Sources List Deb
   apt_repository: 
+  sudo: yes
     repo='deb https://deb.nodesource.com/node {{ ansible_distribution_release }} main' 
     state=present
   when: distrosupported|success
 
 - name: Add Nodesource Apt Sources List Deb Src
   apt_repository: 
+  sudo: yes
     repo='deb-src https://deb.nodesource.com/node {{ ansible_distribution_release }} main' 
     state=present
   when: distrosupported|success
 
 - name: Install NodeJS
+  sudo: yes
   apt: name=nodejs={{ nodejs_version }}* update_cache=true
   when: distrosupported|success
 
