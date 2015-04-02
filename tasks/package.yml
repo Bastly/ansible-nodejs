@@ -13,9 +13,7 @@
   register: distrosupported
 
 - name: Add Nodesource Keys
-  apt_key: 
-    url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key 
-    state=present
+  shell: wget -qO - https://deb.nodesource.com/gpgkey/nodesource.gpg.key  | sudo apt-key add -
 
 - name: Add Nodesource Apt Sources List Deb
   apt_repository: 
