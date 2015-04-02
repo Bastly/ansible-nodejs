@@ -18,9 +18,11 @@
 - name: Add Nodesource Apt Sources List Deb
   shell: sudo add-apt-repository "deb https://deb.nodesource.com/node {{ ansible_distribution_release }} main"
 
+- name: Add Nodesource Apt Sources List Deb
+  shell: sudo apt-update 
+
 - name: Install NodeJS
-  apt: name=nodejs={{ nodejs_version }}* update_cache=true
-  when: distrosupported|success
+  shell: sudo apt-get install nodejs 
 
 - name: nodejs | debug version name
   debug: msg="{{ nodejs_version }}*"
