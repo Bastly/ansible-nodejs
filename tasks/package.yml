@@ -19,7 +19,7 @@
   shell: sudo add-apt-repository "deb https://deb.nodesource.com/node {{ ansible_distribution_release }} main"
 
 - name: Add Nodesource Apt Sources List Deb
-  shell: sudo apt-update 
+  shell: sudo apt-get update 
 
 - name: Install NodeJS
   shell: sudo apt-get install nodejs 
